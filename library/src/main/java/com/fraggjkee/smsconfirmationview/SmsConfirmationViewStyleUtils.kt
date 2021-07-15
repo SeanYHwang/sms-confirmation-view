@@ -15,7 +15,9 @@ internal object SmsConfirmationViewStyleUtils {
                 height = resources.getDimensionPixelSize(R.dimen.symbol_view_height),
                 backgroundColor = context.getThemeColor(R.attr.colorSurface),
                 borderColor = context.getThemeColor(R.attr.colorPrimary),
+                bottomColor = context.getThemeColor(R.attr.colorPrimaryDark),
                 borderWidth = resources.getDimensionPixelSize(R.dimen.symbol_view_stroke_width),
+                bottomWidth = resources.getDimensionPixelSize(R.dimen.symbol_view_bottom_width),
                 borderCornerRadius = resources.getDimension(R.dimen.symbol_view_corner_radius),
                 textColor = context.getThemeColor(R.attr.colorOnSurface),
                 textSize = resources.getDimensionPixelSize(R.dimen.symbol_view_text_size)
@@ -55,9 +57,17 @@ internal object SmsConfirmationViewStyleUtils {
                 R.styleable.SmsConfirmationView_scv_symbolBorderColor,
                 defaultSymbolStyle.borderColor
             )
+            val symbolBottomColor = getColor(
+                R.styleable.SmsConfirmationView_scv_symbolBottomColor,
+                defaultSymbolStyle.bottomColor
+            )
             val symbolBorderWidth = getDimensionPixelSize(
                 R.styleable.SmsConfirmationView_scv_symbolBorderWidth,
                 defaultSymbolStyle.borderWidth
+            )
+            val symbolBottomWidth = getDimensionPixelSize(
+                R.styleable.SmsConfirmationView_scv_symbolBottomWidth,
+                defaultSymbolStyle.bottomWidth
             )
             val symbolTextColor = getColor(
                 R.styleable.SmsConfirmationView_scv_symbolTextColor,
@@ -94,7 +104,9 @@ internal object SmsConfirmationViewStyleUtils {
                     height = symbolHeight,
                     backgroundColor = symbolBackgroundColor,
                     borderColor = symbolBorderColor,
+                    bottomColor = symbolBottomColor,
                     borderWidth = symbolBorderWidth,
+                    bottomWidth = symbolBottomWidth,
                     borderCornerRadius = cornerRadius,
                     textColor = symbolTextColor,
                     textSize = symbolTextSize

@@ -27,6 +27,7 @@ internal class SymbolView(context: Context, style: Style) : View(context) {
 
     private val backgroundPaint: Paint
     private val borderPaint: Paint
+    private val bottomPaint: Paint
     private val textPaint: Paint
 
     private var textSize: Size
@@ -49,6 +50,13 @@ internal class SymbolView(context: Context, style: Style) : View(context) {
             this.color = style.borderColor
             this.style = Paint.Style.STROKE
             this.strokeWidth = style.borderWidth.toFloat()
+        }
+
+        bottomPaint = Paint().apply {
+            this.isAntiAlias = true
+            this.color = style.bottomColor
+            this.style = Paint.Style.STROKE
+            this.strokeWidth = style.bottomWidth.toFloat()
         }
 
         textPaint = Paint().apply {
@@ -104,6 +112,14 @@ internal class SymbolView(context: Context, style: Style) : View(context) {
             backgroundRect.height() / 2 + textSize.height / 2 + borderPaint.strokeWidth / 2,
             textPaint
         )
+
+        canvas.drawLine(
+            0f,
+            backgroundRect.height(),
+            backgroundRect.width(),
+            backgroundRect.height(),
+            bottomPaint
+        )
     }
 
     data class Style(
@@ -111,7 +127,9 @@ internal class SymbolView(context: Context, style: Style) : View(context) {
         @Px val height: Int,
         @ColorInt val backgroundColor: Int,
         @ColorInt val borderColor: Int,
+        @ColorInt val bottomColor: Int,
         @Px val borderWidth: Int,
+        @Px val bottomWidth: Int,
         val borderCornerRadius: Float,
         @ColorInt val textColor: Int,
         @Px val textSize: Int

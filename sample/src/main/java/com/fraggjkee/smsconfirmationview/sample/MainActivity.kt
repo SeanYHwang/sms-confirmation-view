@@ -13,7 +13,8 @@ class MainActivity : AppCompatActivity() {
 
         val view = findViewById<SmsConfirmationView>(R.id.sms_code_view)
         view.onChangeListener = SmsConfirmationView.OnChangeListener { code, isComplete ->
-            Toast.makeText(this, "value: $code, isComplete: $isComplete", Toast.LENGTH_SHORT)
+
+            Toast.makeText(this, "value: $code, isComlete: $isComplete", Toast.LENGTH_SHORT)
                 .show()
         }
 
